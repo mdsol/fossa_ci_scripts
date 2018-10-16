@@ -6,22 +6,10 @@ run_fossa()
   FOSSA_EXIT_CODE=$?
 }
 
-# Check for Build Node Index
-if [ -z "$CI_NODE_INDEX" ]; then
-  # No Build Node Index provided; assume single thread (non-parallel) build, so run FOSSA
+# Check if Build Node Index is the FOSSA Node Index
+if [ "${CI_NODE_INDEX-0}" -eq "${FOSSA_NODE_INDEX-0}" ]; then
+  # Only run FOSSA on FOSSA Node Index
   run_fossa
-else
-  # Build Node Index provided; assume multi-thread (parallel) build
-  if [ -z "FOSSA_NODE_INDEX" ]; then
-    # Set Default Build Node Index
-    FOSSA_NODE_INDEX=0
-  fi
-
-  # Check if Build Node Index is the FOSSA Node Index
-  if [ "$CI_NODE_INDEX" -eq "$FOSSA_NODE_INDEX" ]; then
-    # Only run FOSSA on FOSSA Node Index
-    run_fossa
-  fi
 fi
 
 # Check for Fail Build Toggle
