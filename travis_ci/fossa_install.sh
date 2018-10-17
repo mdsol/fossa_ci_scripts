@@ -13,10 +13,8 @@ if [ -z $CI_NODE_INDEX ]; then
 else
   # Build Node Index provided; assume multi-thread (parallel) build
   [[ $FOSSA_NODE_INDEX ]] || export FOSSA_NODE_INDEX=0
-
-  # Check if Build Node Index is the FOSSA Node Index
+# Check if Build Node Index is the FOSSA Node Index
   if [ $CI_NODE_INDEX -eq $FOSSA_NODE_INDEX ]; then
-    # Only install CLI on FOSSA Node Index
-    install_fossa
-  fi
+  # Only install CLI on FOSSA Node Index
+  install_fossa
 fi
