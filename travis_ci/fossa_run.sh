@@ -2,6 +2,7 @@
 run_fossa()
 {
   # Run FOSSA Policy Checks and get the resulting Exit Code
+  fossa
   fossa test
   FOSSA_EXIT_CODE=$?
 }
