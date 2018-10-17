@@ -6,19 +6,16 @@ install_fossa()
 }
 
 # Check for Build Node Index
-if [ -z "$CI_NODE_INDEX" ]; then
+if [ -z $CI_NODE_INDEX ]; then
   # No Build Node Index provided; assume single thread (non-parallel) build, so install CLI
   install_fossa
-  
+
 else
   # Build Node Index provided; assume multi-thread (parallel) build
-  if [ -z "FOSSA_NODE_INDEX" ]; then
-    # Set Default Build Node Index
-    FOSSA_NODE_INDEX=0
-  fi
+  [[ $FOSSA_NODE_INDEX ]] || export FOSSA_NODE_INDEX=0
 
   # Check if Build Node Index is the FOSSA Node Index
-  if [ "$CI_NODE_INDEX" -eq "$FOSSA_NODE_INDEX" ]; then
+  if [ $CI_NODE_INDEX -eq $FOSSA_NODE_INDEX ]; then
     # Only install CLI on FOSSA Node Index
     install_fossa
   fi
