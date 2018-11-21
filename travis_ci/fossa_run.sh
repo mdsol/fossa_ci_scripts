@@ -2,12 +2,17 @@
 
 run_fossa()
 {
+  echo "Queuing FOSSA Checks..."
   ./fossa
+  echo "FOSSA Checks Queued Successfully!"
+  
   fail_build_check
 }
 
 fail_build_check()
 {
+  echo "Determining FOSSA Fail Build Flag..."
+  
   # Check for Fail Build Toggle, default to false
   export FOSSA_FAIL_BUILD=${FOSSA_FAIL_BUILD:-false}
   # Get Toggle value in lowercase
@@ -16,22 +21,30 @@ fail_build_check()
   # Check if Fail Build Toggle is Enabled
   if [ "$FOSSA_FAIL_BUILD_TOGGLE" == "true" ]; then
     # Return FOSSA CLI Exit Code for Build Failures
+    echo "FOSSA Fail Build Flag Enabled.  Checking for Policy Violations..."
     export FOSSA_EXIT_CODE=$(./fossa test)
+    echo "FOSSA Policy Violations check returned : $FOSSA_EXIT_CODE (non-zero codes are failures)"
     exit $FOSSA_EXIT_CODE
+  else
+    echo "FOSSA Fail Build Flag Disabled.  Skipping Policy Violations Check!"
   fi
 }
 
 # Check for Build Node Index
 if [ -z $CI_NODE_INDEX ]; then
   # No Build Node Index provided; assume single thread (non-parallel) build, so run FOSSA
+  echo "Single Node Execution Detected..."
   run_fossa
 else
   # Build Node Index provided, assume multi-thread (parallel) build; default to Node Index 0
+  echo "Parallel Node Execution Detected..."
   [[ $FOSSA_NODE_INDEX ]] || export FOSSA_NODE_INDEX=0
 
   # Check if Build Node Index is the FOSSA Node Index
   if [ $CI_NODE_INDEX -eq $FOSSA_NODE_INDEX ]; then
     # Only run FOSSA on FOSSA Node Index
     run_fossa
+  else
+    echo "Current Node Index ($CI_NODE_INDEX) is not FOSSA Execution Node ($FOSSA_NODE_INDEX).  Skipping FOSSA Execution!"
   fi
 fi

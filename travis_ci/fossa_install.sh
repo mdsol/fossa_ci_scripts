@@ -3,18 +3,19 @@
 install_fossa()
 {
   # Install FOSSA CLI via FOSSA provided Install Script; CLI is installed to Build Folder to avoid needing sudo access
+  echo "Installing FOSSA CLI..."
   curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | bash -s -- -b $TRAVIS_BUILD_DIR
   echo "FOSSA CLI Installed Successfully!"
 }
 
 # Check for Build Node Index
 if [ -z $CI_NODE_INDEX ]; then
-  echo "Single Node Execution Detected..."
   # No Build Node Index provided; assume single thread (non-parallel) build, so install CLI
+  echo "Single Node Execution Detected..."
   install_fossa
 
 else
-  # Build Node Index provided; assume multi-thread (parallel) build
+  # Build Node Index provided; assume multi-thread (parallel) build; default to Node Index 0
   echo "Parallel Node Execution Detected..."
   [[ $FOSSA_NODE_INDEX ]] || export FOSSA_NODE_INDEX=0
   
