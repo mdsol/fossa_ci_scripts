@@ -2,10 +2,12 @@
 
 ## Necessary Steps
   - Open the Project's '.travis.yml' for editing
-  - Add the following line to the Travis YML 'install' stage :  
-  ```curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/master/travis_ci/fossa_install.sh | bash -s -- -b $TRAVIS_BUILD_DIR```
-  - Add the following line to the Travis YML 'script' stage :  
-  ```curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/master/travis_ci/fossa_run.sh | bash -s -- -b $TRAVIS_BUILD_DIR```
+  - Add the following line to the Travis YML 'install' stage exactly as it appears below :  
+  ```- |- 
+       curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/Jman420/fossa_ci_scripts/develop/travis_ci/fossa_install.sh | bash -s -- -b $TRAVIS_BUILD_DIR```
+  - Add the following line to the Travis YML 'script' stage exactly as it appears below :  
+  ```- |- 
+       curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/Jman420/fossa_ci_scripts/develop/travis_ci/fossa_run.sh | bash -s -- -b $TRAVIS_BUILD_DIR```
   - Commit & push changes to GitHub
   - Check TravisCI Project Pipeline for errors or failures
 
