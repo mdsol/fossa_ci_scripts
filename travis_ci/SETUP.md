@@ -1,7 +1,11 @@
 # Travis CI FOSSA Setup Instructions
 
 ## Necessary Steps
-  - Open the Project's '.travis.yml' for editing
+  - Follow instructions to [Obtain a FOSSA API Key](OBTAINING_API_KEY.md)
+  - Log into TravisCI and open the appropriate Project
+  - Click 'More Options' -> 'Settings' on the right of the Project Page
+  - Add an Environment Variable named 'FOSSA_API_KEY', set it's value to the provided API Key and set 'Display value in log' to Disabled
+  - Open the Project's '.travis.yml' file for editing from the Project's GitHub Repository
   - Add the following line to the Travis YML 'install' stage exactly as it appears below :  
   ```
   - |- 
@@ -12,8 +16,11 @@
   - |- 
     curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/master/travis_ci/fossa_run.sh | bash -s -- -b $TRAVIS_BUILD_DIR
   ```
+  - Follow any necessary [Optional Steps](#optional-steps) found below
   - Commit & push changes to GitHub
+  - Open a Pull Request against a TravisCI Monitored Branch
   - Check TravisCI Project Pipeline for errors or failures
+  - Merge the Pull Request when satisfied with output
 
 ## Optional Steps
 
