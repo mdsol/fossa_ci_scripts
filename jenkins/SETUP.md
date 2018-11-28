@@ -1,7 +1,7 @@
 # Jenkins CI FOSSA Setup Instructions
 
 ## Necessary Steps
-  - Follow instructions to [Obtain a FOSSA API Key](OBTAINING_API_KEY.md)
+  - Follow instructions to [Obtain a FOSSA API Key](/OBTAINING_API_KEY.md)
   - Login to Jenkins
   - Add the FOSSA API Key into Jenkin's Secret Store as 'Secret text'
   - Open the Project's Jenkins Pipeline Configuration
@@ -19,7 +19,7 @@
     ```
   - Follow any necessary [Optional Steps](#optional-steps) found below
   - Save the changes to the Jenkins Pipeline
-  - Follow necessary steps to [Setup FOSSA CLI](FOSSA_CLI_SETUP.md)
+  - Follow necessary steps to [Setup FOSSA CLI](/FOSSA_CLI_SETUP.md)
   - Commit & Push changes to GitHub
   - Open a Pull Request against a Jenkins Monitored Branch
   - Check Jenkins Project Pipeline for errors or failures

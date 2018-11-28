@@ -1,7 +1,7 @@
 # Travis CI FOSSA Setup Instructions
 
 ## Necessary Steps
-  - Follow instructions to [Obtain a FOSSA API Key](OBTAINING_API_KEY.md)
+  - Follow instructions to [Obtain a FOSSA API Key](/OBTAINING_API_KEY.md)
   - Log into TravisCI and open the appropriate Project
   - Click 'More Options' -> 'Settings' on the right of the Project Page
   - Add an Environment Variable named 'FOSSA_API_KEY', set it's value to the provided API Key and set 'Display value in log' to Disabled
@@ -17,7 +17,7 @@
     curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/master/travis_ci/fossa_run.sh | bash -s -- -b $TRAVIS_BUILD_DIR
   ```
   - Follow any necessary [Optional Steps](#optional-steps) found below
-  - Follow necessary steps to [Setup FOSSA CLI](FOSSA_CLI_SETUP.md)
+  - Follow necessary steps to [Setup FOSSA CLI](/FOSSA_CLI_SETUP.md)
   - Commit & Push changes to GitHub
   - Open a Pull Request against a TravisCI Monitored Branch
   - Check TravisCI Project Pipeline for errors or failures
