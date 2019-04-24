@@ -29,8 +29,8 @@ run_fossa__fails_if_api_key_missing()
   ../travis_ci/fossa_run.sh &> /dev/null
   ret=$?
   echo "Info: fossa_run.sh exit code is $ret"
-  if [ $ret -eq 0 ]; then
-    echo 'Error: fossa_run.sh succeeded but should have failed' >&2
+  if [ $ret -ne 1 ]; then
+    echo 'Error: fossa_run.sh should have failed with error code 1' >&2
     return 1
   fi
 

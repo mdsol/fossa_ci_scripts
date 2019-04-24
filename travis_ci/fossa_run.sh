@@ -4,7 +4,7 @@ run_fossa()
 {
   echo "Queuing FOSSA Checks..."
   ./fossa
-  if ($? -eq 0)
+  if ( $? -eq 0 ); then
     echo "FOSSA Checks Queued Successfully!"  
     fail_build_check
   else
