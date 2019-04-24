@@ -3,10 +3,10 @@
 install_fossa__adds_fossa_cmd()
 {
   echo "Test install_fossa__adds_fossa_cmd..."
-  export TRAVIS_BUILD_DIR=${TRAVIS_BUILD_DIR:-`pwd`}
+  export TRAVIS_BUILD_DIR=${TRAVIS_BUILD_DIR:-$(pwd)}
   echo "Info: TRAVIS_BUILD_DIR is $TRAVIS_BUILD_DIR"
 
-  ../travis_ci/fossa_install.sh &> /dev/null 
+  ../travis_ci/fossa_install.sh &> /dev/null
   ret=$?
   echo "Info: fossa_install.sh exit code is $ret"
   if [ $ret -ne 0 ]; then
