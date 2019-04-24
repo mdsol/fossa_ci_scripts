@@ -4,9 +4,13 @@ run_fossa()
 {
   echo "Queuing FOSSA Checks..."
   ./fossa
-  echo "FOSSA Checks Queued Successfully!"
-  
-  fail_build_check
+  if ($? -eq 0)
+    echo "FOSSA Checks Queued Successfully!"  
+    fail_build_check
+  else
+    echo "FOSSA Checks Failed to Queue :("
+    exit 1
+  fi
 }
 
 fail_build_check()
@@ -48,3 +52,4 @@ else
     echo "Current Node Index ($CI_NODE_INDEX) is not FOSSA Execution Node ($FOSSA_NODE_INDEX).  Skipping FOSSA Execution!"
   fi
 fi
+exit 0
