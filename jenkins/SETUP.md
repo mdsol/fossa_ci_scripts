@@ -7,17 +7,17 @@
   - Open the Project's Jenkins Pipeline Configuration
   - Under 'Bindings' add a new 'Secret Text', set the 'Variable' field to 'FOSSA_API_KEY' and set the 'Credentials' dropdown to the FOSSA API Key entry from the Secret Store
   - Under 'Build' add a new build step and set the 'Command' as :
-    * If using Batch  
-    ```
-    @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/master/jenkins/fossa_install.ps1'))"
-    @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/master/jenkins/fossa_run.ps1'))"
-    ```
     * If using PowerShell  
     ```
     Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/master/jenkins/fossa_install.ps1'))
     Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/master/jenkins/fossa_run.ps1'))
     ```
-    * If using Bash
+    * If using Windows Shell (Batch)
+    ```
+    @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/master/jenkins/fossa_install.ps1'))"
+    @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/master/jenkins/fossa_run.ps1'))"
+    ```
+    * If using Linux Shell (Bash)
     ```
     curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/Jman420/fossa_ci_scripts/feature/jenkins-bash/jenkins/fossa_install.sh | bash -s -- -b $WORKSPACE
     curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/Jman420/fossa_ci_scripts/feature/jenkins-bash/jenkins/fossa_run.sh | bash -s -- -b $WORKSPACE
