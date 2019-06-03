@@ -17,6 +17,11 @@
     Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/master/jenkins/fossa_install.ps1'))
     Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/master/jenkins/fossa_run.ps1'))
     ```
+    * If using Bash
+    ```
+    curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/Jman420/fossa_ci_scripts/feature/jenkins-bash/jenkins/fossa_install.sh | bash -s -- -b $WORKSPACE
+    curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/Jman420/fossa_ci_scripts/feature/jenkins-bash/jenkins/fossa_run.sh | bash -s -- -b $WORKSPACE
+    ```
   - Follow any necessary [Optional Steps](#optional-steps) found below
   - Save the changes to the Jenkins Pipeline
   - Follow necessary steps to [Setup FOSSA CLI](/FOSSA_CLI_SETUP.md)
