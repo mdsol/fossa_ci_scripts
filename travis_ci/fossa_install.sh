@@ -4,7 +4,7 @@ install_fossa()
 {
   # Install FOSSA CLI via FOSSA provided Install Script; CLI is installed to Build Folder to avoid needing sudo access
   echo "Installing FOSSA CLI..." 
-  if ! curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | bash -s -- -b "$TRAVIS_BUILD_DIR"; then
+  if ! curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | bash -s -- -b "$TRAVIS_BUILD_DIR" v1.0.4; then
     echo "FOSSA CLI Install Failed :("
     exit 1 
   fi
