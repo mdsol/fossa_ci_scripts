@@ -8,14 +8,14 @@
 - Edit the Travis YML (`.travis.yml`) exactly as it appears below:
   - Add to the `install` section:
   ```
-  - >
+  - >-
     curl -H 'Cache-Control: no-cache'
     https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/master/travis_ci/fossa_install.sh |
     bash -s -- -b $TRAVIS_BUILD_DIR
   ```
   - Add to the `script` section:
   ```
-  - >
+  - >-
     curl -H 'Cache-Control: no-cache'
     https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/master/travis_ci/fossa_run.sh |
     bash -s -- -b $TRAVIS_BUILD_DIR
