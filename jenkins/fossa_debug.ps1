@@ -4,7 +4,7 @@
 Param()
 
 Write-Output "Queuing FOSSA Checks..."
-. $env:ALLUSERSPROFILE\fossa-cli\fossa.exe
+. $env:ALLUSERSPROFILE\fossa-cli\fossa.exe --debug
 Write-Output "FOSSA Checks Queued Successfully!"
 
 $FOSSA_FAIL_BUILD_TOGGLE = $false
@@ -14,7 +14,7 @@ if (Test-Path env:FOSSA_FAIL_BUILD) {
 
 if ($FOSSA_FAIL_BUILD_TOGGLE) {
     Write-Output "FOSSA Fail Build Flag Enabled.  Checking for Policy Violations..."
-    . $env:ALLUSERSPROFILE\fossa-cli\fossa.exe test
+    . $env:ALLUSERSPROFILE\fossa-cli\fossa.exe test --debug
     $FOSSA_EXIT_CODE = $LASTEXITCODE
     
     Write-Output "FOSSA Policy Violations check returned : $FOSSA_EXIT_CODE (non-zero codes are failures)"
