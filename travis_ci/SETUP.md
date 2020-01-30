@@ -2,7 +2,7 @@
 
 ## Necessary Steps
   - Follow instructions to [Obtain a FOSSA API Key](/OBTAINING_API_KEY.md)
-  - Request a Github Admin (see #github-admins Slack Channel) to add the FOSSA API Key to your Travis Project
+  - Request a Github Admin (see #fossa-support or #github-admins Slack Channel) to add the FOSSA API Key to your Travis Project
     * __*NOTE*__ : Make sure to send the API Key only via Encrypted Email
   - Open the Project's '.travis.yml' file for editing on your Local Machine
   - Add the following line to the Travis YML 'install' stage exactly as it appears below :  
