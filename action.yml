@@ -5,3 +5,5 @@ runs:
   steps: 
     - run: bash ${{ github.action_path }}/github_actions/run.sh
       shell: bash
+      env:
+        FOSSA_API_KEY: ${{ secrets.FOSSA_API_KEY }}
