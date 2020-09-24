@@ -1,0 +1,7 @@
+name: 'FOSSA'
+description: 'Run FOSSA dependency analysis and upload'
+runs:
+  using: "composite"
+  steps: 
+    - run: bash ${{ github.action_path }}/github_actions/run.sh
+      shell: bash
