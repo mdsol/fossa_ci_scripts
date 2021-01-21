@@ -8,7 +8,10 @@ run_fossa()
     fail_build_check
   else
     echo "FOSSA Checks Failed to Queue :("
-    exit 1
+    
+    # Build Failure Disabled due to FOSSA Stability issue around token permission (1/21/2021); re-enable once stability restored
+    # exit 1
+    exit 0
   fi
 }
 
