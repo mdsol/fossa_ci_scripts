@@ -12,6 +12,13 @@ install_fossa()
   echo "FOSSA CLI Installed Successfully!"
 }
 
+# DEPRECATION NOTICE
+echo "******************************************************************"
+echo "  NOTICE : THIS SCRIPT HAS BEEN PULLED FROM A DEPRECATED SOURCE"
+echo "           PLEASE SEE :"
+echo "  https://github.com/mdsol/fossa_ci_scripts/blob/main/travis_ci/SETUP.md"
+echo "******************************************************************"
+
 # Check for Build Node Index
 if [ -z $CI_NODE_INDEX ]; then
   # No Build Node Index provided; assume single thread (non-parallel) build, so install CLI

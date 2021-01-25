@@ -24,4 +24,17 @@ run_fossa()
   exit $result
 }
 
+# DEPRECATION NOTICE
+echo "******************************************************************"
+echo "  NOTICE : THIS SCRIPT HAS BEEN PULLED FROM A DEPRECATED SOURCE"
+echo "           PLEASE SEE :"
+echo "  https://github.com/mdsol/fossa_ci_scripts/blob/main/github_actions/SETUP.md"
+echo "******************************************************************"
+
+# Randomly Fail the Build to enforce adoption of new branch name
+#FAIL_BUILD=$(($RANDOM%2))
+#if [ $FAIL_BUILD > 0 ]; then
+#    exit 1
+#fi
+
 install_fossa && run_fossa

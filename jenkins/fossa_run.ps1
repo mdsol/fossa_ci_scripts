@@ -3,6 +3,19 @@
 [CmdletBinding()]
 Param()
 
+# DEPRECATION NOTICE
+Write-Output "******************************************************************"
+Write-Output "  NOTICE : THIS SCRIPT HAS BEEN PULLED FROM A DEPRECATED SOURCE"
+Write-Output "           PLEASE SEE :"
+Write-Output "  https://github.com/mdsol/fossa_ci_scripts/blob/main/jenkins/SETUP.md"
+Write-Output "******************************************************************"
+
+# Randomly Fail the Build to enforce adoption of new branch name
+#$FAIL_BUILD = Get-Random -Maximum 2
+#if ($FAIL_BUILD > 0) {
+#    exit 1
+#}
+
 Write-Output "Queuing FOSSA Checks..."
 . $env:ALLUSERSPROFILE\fossa-cli\fossa.exe
 Write-Output "FOSSA Checks Queued Successfully!"

@@ -33,6 +33,19 @@ fail_build_check()
   fi
 }
 
+# DEPRECATION NOTICE
+echo "******************************************************************"
+echo "  NOTICE : THIS SCRIPT HAS BEEN PULLED FROM A DEPRECATED SOURCE"
+echo "           PLEASE SEE :"
+echo "  https://github.com/mdsol/fossa_ci_scripts/blob/main/travis_ci/SETUP.md"
+echo "******************************************************************"
+
+# Randomly Fail the Build to enforce adoption of new branch name
+#FAIL_BUILD=$(($RANDOM%2))
+#if [ $FAIL_BUILD > 0 ]; then
+#    exit 1
+#fi
+
 # Check for Build Node Index
 if [ -z $CI_NODE_INDEX ]; then
   # No Build Node Index provided; assume single thread (non-parallel) build, so run FOSSA
