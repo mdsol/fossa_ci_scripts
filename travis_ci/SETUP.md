@@ -10,14 +10,14 @@
   ```
   - >-
     curl -H 'Cache-Control: no-cache'
-    https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/master/travis_ci/fossa_install.sh |
+    https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/main/travis_ci/fossa_install.sh |
     bash -s -- -b $TRAVIS_BUILD_DIR
   ```
   - Add to the `script` section:
   ```
   - >-
     curl -H 'Cache-Control: no-cache'
-    https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/master/travis_ci/fossa_run.sh |
+    https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/main/travis_ci/fossa_run.sh |
     bash -s -- -b $TRAVIS_BUILD_DIR
   ```
 - Follow any of the [optional steps](#optional-steps) found below

@@ -8,4 +8,3 @@ This repository contains Scripts for use with integrating FOSSA into CI Pipeline
   - [Configuring TravisCI](travis_ci/SETUP.md)
   - [Configuring Jenkins](jenkins/SETUP.md)
   - [Configuring Github Actions](github_actions/SETUP.md)
-  - Configuring GoCD - Coming Soon

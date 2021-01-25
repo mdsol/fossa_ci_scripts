@@ -4,7 +4,6 @@ Medidata's FOSSA instance should only be accessed through OKTA.  Attempting to a
 
 ## Steps
   - Login to OKTA
-  - Find FOSSA in OKTA and click on it's Icon
-  - Upon successful first login you should see the FOSSA Platform Homepage with no Projects listed
-  - Contact InfoSec (Justin Giannone or Patrick Ryga) to request access to the appropriate Projects within FOSSA
-  - After access has been granted subsequent logins will show Available Projects on the FOSSA Platform Homepage
+  - Serach for the FOSSA Chicklet
+  - Request access to the FOSSA Chicklet
+  - Once access is granted click the FOSSA Chicklet to access the FOSSA Platform
