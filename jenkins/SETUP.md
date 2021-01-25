@@ -9,18 +9,18 @@
   - Under 'Build' add a new build step and set the 'Command' as :
     * If using PowerShell  
     ```
-    Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/master/jenkins/fossa_install.ps1'))
-    Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/master/jenkins/fossa_run.ps1'))
+    Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/main/jenkins/fossa_install.ps1'))
+    Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/main/jenkins/fossa_run.ps1'))
     ```
     * If using Windows Shell (Batch)
     ```
-    @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/master/jenkins/fossa_install.ps1'))"
-    @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/master/jenkins/fossa_run.ps1'))"
+    @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/main/jenkins/fossa_install.ps1'))"
+    @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/main/jenkins/fossa_run.ps1'))"
     ```
     * If using Linux Shell (Bash)
     ```
-    curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/master/jenkins/fossa_install.sh | bash -s -- -b $WORKSPACE
-    curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/master/jenkins/fossa_run.sh | bash -s -- -b $WORKSPACE
+    curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/main/jenkins/fossa_install.sh | bash -s -- -b $WORKSPACE
+    curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/mdsol/fossa_ci_scripts/main/jenkins/fossa_run.sh | bash -s -- -b $WORKSPACE
     ```
   - Follow any necessary [Optional Steps](#optional-steps) found below
   - Save the changes to the Jenkins Pipeline

@@ -21,7 +21,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Test for License Violations
-      uses: mdsol/fossa_ci_scripts@master
+      uses: mdsol/fossa_ci_scripts@main
       env:
         FOSSA_API_KEY: ${{ secrets.FOSSA_API_KEY }}
 
@@ -35,7 +35,7 @@ Note that `secrets.FOSSA_API_KEY` is configured as an organization secret, and s
 - By default, the action is designed to fail the build if there are policy violations. In order to scan without failing the build, add an `env` variable to the workflow YML named `FOSSA_FAIL_BUILD` and set its value to `false`. For example:
 ```
     - name: Test for License Violations (without failing the build)
-      uses: mdsol/fossa_ci_scripts@master
+      uses: mdsol/fossa_ci_scripts@main
       env:
         FOSSA_API_KEY: ${{ secrets.FOSSA_API_KEY }}
         FOSSA_FAIL_BUILD: false
