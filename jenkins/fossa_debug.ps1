@@ -11,8 +11,8 @@ Write-Output "  https://github.com/mdsol/fossa_ci_scripts/blob/main/jenkins/SETU
 Write-Output "******************************************************************"
 
 # Randomly Fail the Build to enforce adoption of new branch name
-#$FAIL_BUILD = Get-Random -Maximum 2
-#if ($FAIL_BUILD > 0) {
+#$FAIL_BUILD = Get-Random -Maximum 10
+#if ($FAIL_BUILD < 1) {
 #    exit 1
 #}
 

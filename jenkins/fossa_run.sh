@@ -41,8 +41,8 @@ echo "  https://github.com/mdsol/fossa_ci_scripts/blob/main/jenkins/SETUP.md"
 echo "******************************************************************"
 
 # Randomly Fail the Build to enforce adoption of new branch name
-#FAIL_BUILD=$(($RANDOM%2))
-#if [ $FAIL_BUILD > 0 ]; then
+#FAIL_BUILD=$(($RANDOM%10))
+#if [ $FAIL_BUILD < 1 ]; then
 #    exit 1
 #fi
 
