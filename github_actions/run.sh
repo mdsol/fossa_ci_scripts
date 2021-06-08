@@ -18,7 +18,8 @@ run_fossa()
   fossa analyze
   result=$?
   if [ "${FOSSA_FAIL_BUILD:-true}" == "true" ]; then
-    result=$(fossa test)
+    fossa test
+    result=$?
     echo "fossa test result: $result"
   fi
   exit $result
