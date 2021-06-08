@@ -1,7 +1,6 @@
 # Travis CI FOSSA Setup Instructions
 
 ## Necessary Steps
-
 - Follow the instructions to [obtain a FOSSA API key](/OBTAINING_API_KEY.md)
 - Request a Github Admin (see #github-admins Slack Channel) to add the FOSSA API key to your Travis project
   - __*NOTE*__: Make sure to send the API key only via Encrypted Email

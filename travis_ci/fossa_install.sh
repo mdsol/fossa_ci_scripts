@@ -1,14 +1,36 @@
 #!/bin/bash
 
+BUILD_DIR="$TRAVIS_BUILD_DIR"
+CLI_INSTALL_SCRIPT="https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh"
+
+install_latest()
+{
+  echo "Installing Latest CLI Version..."
+  if ! curl -H 'Cache-Control: no-cache' $CLI_INSTALL_SCRIPT | bash -s -- -b "$BUILD_DIR"; then
+    echo "FOSSA CLI Install Failed :("
+    exit 1
+  fi
+}
+
+install_pinned()
+{
+  echo "Installing CLI Version $FOSSA_CLI_VERSION ..."
+  if ! curl -H 'Cache-Control: no-cache' $CLI_INSTALL_SCRIPT | bash -s -- -b "$BUILD_DIR" v$FOSSA_CLI_VERSION; then
+    echo "FOSSA CLI Install Failed :("
+    exit 1
+  fi
+}
+
 install_fossa()
 {
-  # Install FOSSA CLI via FOSSA provided Install Script; CLI is installed to Build Folder to avoid needing sudo access
+  # Install FOSSA CLI via FOSSA provided Install Script
+  # CLI is installed to Build Folder to avoid needing sudo access
   echo "Installing FOSSA CLI..." 
-  if ! curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | bash -s -- -b "$TRAVIS_BUILD_DIR"; then
-    echo "FOSSA CLI Install Failed :("
-    exit 1 
+  if [ -z $FOSSA_CLI_VERSION ]; then
+    install_latest
+  else
+    install_pinned
   fi
-
   echo "FOSSA CLI Installed Successfully!"
 }
 
