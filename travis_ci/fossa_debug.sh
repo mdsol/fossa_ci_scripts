@@ -3,7 +3,7 @@
 run_fossa()
 {
   echo "Queuing FOSSA Checks..."
-  if ./fossa; then
+  if ./fossa --debug; then
     echo "FOSSA Checks Queued Successfully!"  
     fail_build_check
   else
@@ -25,7 +25,7 @@ fail_build_check()
   if [ "$FOSSA_FAIL_BUILD_TOGGLE" == "true" ]; then
     # Return FOSSA CLI Exit Code for Build Failures
     echo "FOSSA Fail Build Flag Enabled.  Checking for Policy Violations..."
-    ./fossa test
+    ./fossa test --debug
     export FOSSA_EXIT_CODE=$?
     echo "FOSSA Policy Violations check returned : $FOSSA_EXIT_CODE (non-zero codes are failures)"
     exit $FOSSA_EXIT_CODE

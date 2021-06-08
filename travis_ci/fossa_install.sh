@@ -31,7 +31,6 @@ install_fossa()
   else
     install_pinned
   fi
-
   echo "FOSSA CLI Installed Successfully!"
 }
 
