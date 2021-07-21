@@ -24,10 +24,11 @@ jobs:
       uses: mdsol/fossa_ci_scripts@main
       env:
         FOSSA_API_KEY: ${{ secrets.FOSSA_API_KEY }}
-
+        FOSSA_BIN_DIR: "/usr/local/bin"
 ```
 
 Note that `secrets.FOSSA_API_KEY` is configured as an organization secret, and should be accessible across all mdsol repos.
+Fossa scripts will be installed under FOSSA_BIN_DIR, default value is `/usr/local/bin`. If using github-hosted agents, please change this directory to avoid permission issues.
 
 ## Optional Steps
 
