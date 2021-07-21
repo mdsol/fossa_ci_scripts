@@ -15,6 +15,8 @@ install_fossa()
 run_fossa()
 {
   echo "Analyzing and testing licenses..."
+  FOSSA_BIN_DIR="${FOSSA_BIN_DIR:=/usr/local/bin}"
+  export PATH=$PATH:$FOSSA_BIN_DIR
   fossa init
   fossa analyze
   result=$?
