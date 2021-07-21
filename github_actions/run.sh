@@ -3,7 +3,8 @@
 install_fossa()
 {
   echo "Installing FOSSA CLI"
-  curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | bash -s
+  FOSSA_BIN_DIR="${FOSSA_BIN_DIR:=/usr/local/bin}"
+  curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | bash -s -- -b $FOSSA_BIN_DIR
   ret=$?
   if [ $ret -ne 0 ]; then
     echo 'Error: FOSSA install failed' >&2
