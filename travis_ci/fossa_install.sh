@@ -1,7 +1,7 @@
 #!/bin/bash
 
 BUILD_DIR="$TRAVIS_BUILD_DIR"
-CLI_INSTALL_SCRIPT="https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh"
+CLI_INSTALL_SCRIPT="https://raw.githubusercontent.com/fossas/fossa-cli/master/install-latest.sh"
 
 install_latest()
 {
