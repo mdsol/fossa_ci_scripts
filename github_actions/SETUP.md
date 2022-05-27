@@ -41,3 +41,7 @@ Fossa scripts will be installed under FOSSA_BIN_DIR, default value is `/usr/loca
         FOSSA_API_KEY: ${{ secrets.FOSSA_API_KEY }}
         FOSSA_FAIL_BUILD: false
 ```
+
+### Pinning the FOSSA CLI version
+- Add an environment variable to the Travis YML named `FOSSA_CLI_VERSION` and set its value to a valid semantic version for the FOSSA CLI.
+  - __*Note*__: See the [FOSSA CLI GitHub Repository](https://github.com/fossas/fossa-cli/releases) for released versions.
