@@ -1,9 +1,7 @@
 # Travis CI FOSSA Setup Instructions
 
 ## Necessary Steps
-- Follow the instructions to [obtain a FOSSA API key](/OBTAINING_API_KEY.md)
-- Request a Github Admin (see #github-admins Slack Channel) to add the FOSSA API key to your Travis project
-  - __*NOTE*__: Make sure to send the API key only via Encrypted Email
+- Request a Travis Admin (see #travis-ci Slack Channel) to add the FOSSA API key to your Travis project
 - Edit the Travis YML (`.travis.yml`) exactly as it appears below:
   - Add to the `install` section:
   ```
@@ -20,7 +18,7 @@
     bash -s -- -b $TRAVIS_BUILD_DIR
   ```
 - Follow any of the [optional steps](#optional-steps) found below
-- Follow the necessary steps to [setup FOSSA CLI](/FOSSA_CLI_SETUP.md)
+- Follow the necessary steps to [setup FOSSA Project Settings](/SETUP_PROJECT_SETTINGS.md)
 - Commit & push changes to GitHub
 - Open a pull request against a Travis CI monitored branch
 - Check the Travis CI project run for errors or failures
@@ -39,4 +37,8 @@
 
 ### Failing Builds on Policy Violations
 - Add an environment variable to the Travis YML named `FOSSA_FAIL_BUILD` and set its value to `true`.
-  - __*Note*__: This functionalily is optional at this time (Nov 2018), but will be made mandatory through script updates in the future. This toggle is a courtesy for teams which want to get a head start on these requirements.
+  - __*Note*__: This functionalily is optional at this time (May 2022), but will be made mandatory through script updates in the future. This toggle is a courtesy for teams which want to get a head start on these requirements.
+
+### Pinning the FOSSA CLI version
+- Add an environment variable to the Travis YML named `FOSSA_CLI_VERSION` and set its value to a valid semantic version for the FOSSA CLI.
+  - __*Note*__: See the [FOSSA CLI GitHub Repository](https://github.com/fossas/fossa-cli/releases) for released versions.

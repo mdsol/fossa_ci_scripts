@@ -4,7 +4,7 @@
 Param()
 
 Write-Output "Queuing FOSSA Checks..."
-. $env:ALLUSERSPROFILE\fossa-cli\fossa.exe
+. $env:ALLUSERSPROFILE\fossa-cli\fossa.exe analyze
 Write-Output "FOSSA Checks Queued Successfully!"
 
 $FOSSA_FAIL_BUILD_TOGGLE = $false
