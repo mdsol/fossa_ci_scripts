@@ -12,7 +12,7 @@ install_fossa()
     # Backward compatibility branch for pre-existing usages
     echo "Installing FOSSA CLI v3 -> $default_v3"
     curl -H 'Cache-Control: no-cache' $url | bash -s -- -b $FOSSA_BIN_DIR $default_v3
-  elif [ -n $FOSSA_CLI_VERSION ]; then
+  elif [ -n "$FOSSA_CLI_VERSION" ]; then
     echo "Installing FOSSA CLI v$FOSSA_CLI_VERSION"
     curl -H 'Cache-Control: no-cache' $url | bash -s -- -b $FOSSA_BIN_DIR v$FOSSA_CLI_VERSION
   else
