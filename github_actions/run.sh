@@ -8,7 +8,7 @@ install_fossa()
 
   ret=1
 
-  if [ "v3" -eq $FOSSA_CLI_VERSION ]; then
+  if [ "v3" = "$FOSSA_CLI_VERSION" ]; then
     # Backward compatibility branch for pre-existing usages
     echo "Installing FOSSA CLI v3 -> $default_v3"
     curl -H 'Cache-Control: no-cache' $url | bash -s -- -b $FOSSA_BIN_DIR $default_v3
