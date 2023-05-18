@@ -4,10 +4,16 @@ install_fossa()
 {
   FOSSA_BIN_DIR="${FOSSA_BIN_DIR:=/usr/local/bin}"
   url="https://raw.githubusercontent.com/fossas/fossa-cli/master/install-latest.sh"
+  default_v3="v3.7.10"
 
   ret=1
-  if [ -z $FOSSA_CLI_VERSION ]; then
-    echo "Installing FOSSA CLI v$FOSSA_VERSION"
+
+  if [ "v3" -eq $FOSSA_CLI_VERSION ]; then
+    # Backward compatibility branch for pre-existing usages
+    echo "Installing FOSSA CLI v3 -> $default_v3"
+    curl -H 'Cache-Control: no-cache' $url | bash -s -- -b $FOSSA_BIN_DIR $default_v3
+  elif [ -n $FOSSA_CLI_VERSION ]; then
+    echo "Installing FOSSA CLI v$FOSSA_CLI_VERSION"
     curl -H 'Cache-Control: no-cache' $url | bash -s -- -b $FOSSA_BIN_DIR v$FOSSA_CLI_VERSION
   else
     echo "Installing latest FOSSA CLI version"

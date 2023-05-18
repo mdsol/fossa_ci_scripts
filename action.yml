@@ -6,5 +6,5 @@ runs:
     - run: bash ${{ github.action_path }}/github_actions/run.sh
       shell: bash
       env:
-        FOSSA_VERSION: ${{ inputs.version }}
+        FOSSA_CLI_VERSION: ${{ inputs.version }}
 
