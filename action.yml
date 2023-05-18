@@ -1,5 +1,9 @@
 name: 'FOSSA'
 description: 'Run FOSSA dependency analysis and upload'
+inputs:
+  version:
+    description: "Specific version of fossa cli"
+    required: false
 runs:
   using: "composite"
   steps: 
