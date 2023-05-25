@@ -1,4 +1,4 @@
-# Travis CI FOSSA Setup Instructions
+# Github Actions FOSSA Setup Instructions
 
 ## Necessary Steps
 
