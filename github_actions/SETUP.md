@@ -19,9 +19,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
+
     - name: Test for License Violations
-      uses: mdsol/fossa_ci_scripts@main
+      uses: mdsol/fossa_ci_scripts@v4
       env:
         FOSSA_API_KEY: ${{ secrets.FOSSA_API_KEY }}
         FOSSA_BIN_DIR: "/usr/local/bin"
