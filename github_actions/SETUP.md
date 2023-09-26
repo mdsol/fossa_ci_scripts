@@ -22,7 +22,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Test for License Violations
-      uses: mdsol/fossa_ci_scripts@v4
+      uses: mdsol/fossa_ci_scripts@main
       env:
         FOSSA_API_KEY: ${{ secrets.FOSSA_API_KEY }}
         FOSSA_BIN_DIR: "/usr/local/bin"
