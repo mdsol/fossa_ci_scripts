@@ -33,7 +33,7 @@ run_fossa()
   FOSSA_BIN_DIR="${FOSSA_BIN_DIR:=/usr/local/bin}"
   export PATH=$PATH:$FOSSA_BIN_DIR
 
-  HEAD_SHA=${{github.sha}}
+  HEAD_SHA=$(git rev-parse HEAD)
   if [ -z "${{ github.event.pull_request }}" ]; then
     BASE_SHA=$(git rev-parse HEAD^)
   else
