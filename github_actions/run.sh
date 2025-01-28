@@ -33,9 +33,20 @@ run_fossa()
   FOSSA_BIN_DIR="${FOSSA_BIN_DIR:=/usr/local/bin}"
   export PATH=$PATH:$FOSSA_BIN_DIR
 
+  HEAD_SHA=${{github.sha}}
+  if [ -z "${{ github.event.pull_request }}" ]; then
+    BASE_SHA=$(git rev-parse HEAD^)
+  else
+    BASE_SHA=${{ github.event.pull_request.base.sha }}
+  fi
+
   fossa analyze
   result=$?
-  if [ "${FOSSA_FAIL_BUILD:-true}" == "true" ]; then
+  if [ "${FOSSA_CHECK_DIFF:-false}" == "true" ] && [ -n "$HEAD_SHA" ] && [ -n "$BASE_SHA" ]; then
+    fossa test --timeout 600 --revision $HEAD_SHA --diff $BASE_SHA
+    result=$?
+    echo "fossa test result for new issues: $result"
+  elif [ "${FOSSA_FAIL_BUILD:-true}" == "true" ]; then
     fossa test --timeout 600
     result=$?
     echo "fossa test result: $result"
